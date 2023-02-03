@@ -12,8 +12,9 @@ def random_spherical(u, v):
     # Switch to cartesian coordinates
     x = np.sin(theta) * np.cos(phi)
     y = np.cos(theta) * np.cos(phi)
+    z = np.cos(theta)
 
-    return x, y
+    return x, y, z
 
 
 # Generate a random point on a hemisphere using Shirley concentric mapping
@@ -49,8 +50,10 @@ def random_concentric(u, v):
 
         x.append(r * np.cos(phi))
         y.append(r * np.sin(phi))
-
-    return x, y
+        
+    z = np.cos(theta)
+        
+    return x, y, z
 
 
 # Generate a random point on a disc using rejection method
@@ -68,7 +71,9 @@ def random_rejection(u, v):
             x.append(u[i])
             y.append(v[i])
 
-    return x, y
+    z = np.cos(theta)
+            
+    return x, y, z
 
 
 # Generate a random point on a disc using polar coordinates
@@ -80,8 +85,9 @@ def random_polar(u, v):
     # Switch to cartesian coordinates
     x = r * np.cos(theta)
     y = r * np.sin(theta)
+    z = np.cos(theta)
 
-    return x, y
+    return x, y, z
 
 
 # Generate a random point on a hemisphere using power cosine
@@ -92,8 +98,9 @@ def random_cosine(u, v, m=1):
     # Switch to cartesian coordinates
     x = np.sin(theta) * np.cos(phi)
     y = np.sin(theta) * np.sin(phi)
+    z = np.cos(theta)
 
-    return x, y
+    return x, y, z
 
 
 # Generate a random point on a hemisphere using power cosine (uniform)
@@ -104,5 +111,6 @@ def random_uniform_cosine(u, v):
     # Switch to cartesian coordinates
     x = sintheta * np.cos(phi)
     y = sintheta * np.sin(phi)
+    z = np.cos(theta)
 
-    return x, y
+    return x, y, z
